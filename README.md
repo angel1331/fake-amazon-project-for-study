@@ -1,5 +1,6 @@
 # fake-amazon-project-for-study
 Fake Store Project
+https://angel1331.github.io/fake-amazon-project-for-study/
 # Amazon Clone (Учебный проект)
 
 Этот проект создан **в учебных целях** для практики HTML, CSS и JavaScript.  
