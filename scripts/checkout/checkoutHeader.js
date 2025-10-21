@@ -18,7 +18,7 @@ export function renderCheckoutHeader() {
 
       <div class="checkout-header-middle-section">
         Checkout (<a class="return-to-home-link js-return-to-home-link"
-          href="amazon.html">${cartQuantity} items</a>)
+          href="https://angel1331.github.io/fake-amazon-project-for-study/">${cartQuantity} items</a>)
       </div>
 
       <div class="checkout-header-right-section">
@@ -31,3 +31,4 @@ export function renderCheckoutHeader() {
     .innerHTML = checkoutHeaderHTML;
 
 }
+
