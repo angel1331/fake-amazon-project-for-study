@@ -91,3 +91,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 loadPage();
+
+function calcProgress(orderTime, deliveryTime) {
+  const now = Date.now();
+  const start = Date.parse(orderTime);
+  const end = Date.parse(deliveryTime);
+
+  if (isNaN(start) || isNaN(end)) {
+    console.warn('Неверные даты:', orderTime, deliveryTime);
+    return 0;
+  }
+
+  const percent = ((now - start) / (end - start)) * 100;
+  return Math.min(Math.max(Math.round(percent), 0), 100); // ограничиваем 0–100
+}
+
+// если у тебя есть переменные orderItem или productDetails — подставь свои:
+try {
+  const orderTime = order.orderTime;
+  const deliveryTime = orderItem?.estimatedDeliveryTime || productDetails?.estimatedDeliveryTime;
+  const percentProgress = calcProgress(orderTime, deliveryTime);
+
+  console.log('Процент готовности:', percentProgress);
+
+  const progressBar = document.querySelector('.progress-bar');
+  if (progressBar) progressBar.style.width = `${percentProgress}%`;
+} catch (e) {
+  console.error('Ошибка при расчёте прогресса:', e);
+}
